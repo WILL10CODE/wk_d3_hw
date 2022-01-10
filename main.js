@@ -10,7 +10,7 @@ document.body.append(button);
 
 
 // button.addEventListener('submit', () => {
-    const button_press = () => {
+    const button_press = (event) => {
     event.preventDefault()
     const poke_name = document.getElementById('pokemon_name');
     loadData(poke_name.value)
@@ -29,10 +29,13 @@ const getData = async (name) =>{
 
 const createList = (pokemonName, image) => {
     const html1 = document.createElement('Pokemon');
-    html1.innerHTML = pokemonName + ' ' + image;
+    html1.innerHTML = pokemonName;
     html1.className = "list-group-item list-group-item-action list-group-item-light";
-    document.querySelector(".pokemon-list").insertAdjacentElement('beforeend',html1);
-  
+    document.querySelector(".pokemon-list").insertAdjacentElement('beforeend',html1,);
+    const html2 = document.createElement('img');
+    html2.src = image;
+    document.querySelector(".add_image").insertAdjacentElement('beforeend', html2)
+
 };
 
 const loadData = async (name) => {
